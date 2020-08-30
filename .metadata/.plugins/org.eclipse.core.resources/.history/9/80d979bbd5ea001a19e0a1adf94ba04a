@@ -1,0 +1,5 @@
+package com.stocks.stockexchangeservice.services;
+
+public class StockExchangeServices {
+
+}

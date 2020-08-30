@@ -12,7 +12,7 @@ import com.stocks.sectorinfoservice.models.Sector;
 @Service
 public class SectorService {
 	
-	private ArrayList<Sector> sectors=new ArrayList<Sector>(Arrays.asList(
+	private ArrayList<Sector> sectors = new ArrayList<Sector>(Arrays.asList(
 			new Sector(1,"IT", "Provides IT services"),
 			new Sector(2,"Automobiles","Builds automobiles"),
 			new Sector(3,"Healthcare","Provides healthcare")

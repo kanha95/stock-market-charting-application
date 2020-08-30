@@ -1,0 +1,21 @@
+package com.stocks.stockexchangeservice.services;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import com.stocks.sectorinfoservice.models.Sector;
+import com.stocks.stockexchangeservice.controllers.List;
+import com.stocks.stockexchangeservice.controllers.StockExchange;
+
+public class StockExchangeServices {
+	
+	private List<StockExchange> sectors=new ArrayList<StockExchange>(Arrays.asList(
+			new StockExchange(1,"IT", "Provides IT services"),
+			new StockExchange(2,"Automobiles","Builds automobiles"),
+			new StockExchange(3,"Healthcare","Provides healthcare")
+			)); 
+	
+    public List<StockExchange> getStockExchangesList(){
+    	return stockExchangeServices.getStockExchangeList();
+    }
+}

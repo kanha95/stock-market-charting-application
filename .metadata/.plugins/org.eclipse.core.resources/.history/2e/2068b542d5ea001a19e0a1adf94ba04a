@@ -1,0 +1,5 @@
+package com.stocks.stockexchangeservice.controllers;
+
+public class StockExchangeController {
+
+}

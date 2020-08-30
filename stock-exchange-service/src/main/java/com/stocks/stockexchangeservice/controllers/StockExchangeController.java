@@ -1,0 +1,31 @@
+package com.stocks.stockexchangeservice.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+import com.stocks.stockexchangeservice.models.StockExchange;
+import com.stocks.stockexchangeservice.services.StockExchangeServices;
+
+import java.util.List;
+
+
+@RestController
+public class StockExchangeController {
+
+    @Autowired
+    private StockExchangeServices stockExchangeServices;
+    
+
+    @RequestMapping("/liststockexchanges")
+    public List<StockExchange> getStockExchangesList(){
+    	return stockExchangeServices.getStockExchangeList();
+    }
+    
+    @RequestMapping(method=RequestMethod.POST, value = "/addstockexchange")
+    public void addStockExchange(@RequestBody StockExchange newStock){
+    	stockExchangeServices.addStockExchange(newStock);
+    }
+	
+}
