@@ -1,0 +1,97 @@
+package com.stocks.companyinfoservice.models;
+
+import java.util.ArrayList;
+
+public class Company {
+    private String companyName;
+    private int companyID;
+    private String ceo;
+    private double turnover;
+    private ArrayList<String> directors;
+    private String sector;
+    private String writeup;
+    private ArrayList<String> exchanges;
+    private String stockCode;
+
+    public String getCompanyName() {
+        return companyName;  
+    }
+
+    public int getCompanyID() {
+        return companyID;
+    }
+
+    public void setCompanyID(int companyID) {
+        this.companyID = companyID;
+    }
+
+    public String getCeo() {
+        return ceo;
+    }
+
+    public void setCeo(String ceo) {
+        this.ceo = ceo;
+    }
+
+    public double getTurnover() {
+        return turnover;
+    }
+
+    public void setTurnover(double turnover) {
+        this.turnover = turnover;
+    }
+
+    public ArrayList<String> getDirectors() {
+        return directors;
+    }
+
+    public void setDirectors(ArrayList<String> directors) {
+        this.directors = directors;
+    }
+
+    public ArrayList<String> getExchanges() {
+        return exchanges;
+    }
+
+    public void setExchanges(ArrayList<String> exchanges) {
+        this.exchanges = exchanges;
+    }
+
+    public String getWriteup() {
+        return writeup;
+    }
+
+    public void setWriteup(String writeup) {
+        this.writeup = writeup;
+    }
+
+    public String getSector() {
+        return sector;
+    }
+
+    public void setSector(String sector) {
+        this.sector = sector;
+    }
+
+    public String getStockCode() {
+        return stockCode;
+    }
+
+    public void setStockCode(String stockCode) {
+        this.stockCode = stockCode;
+    }
+
+    public Company(String companyName, int companyID, String ceo, double turnover, ArrayList<String> directors,
+            String sector, String writeup, ArrayList<String> exchanges, String stockCode) {
+        this.companyName = companyName;
+        this.companyID = companyID;
+        this.ceo = ceo;
+        this.turnover = turnover;
+        this.directors = directors;
+        this.sector = sector;
+        this.writeup = writeup;
+        this.exchanges = exchanges;
+        this.stockCode = stockCode;
+    }
+    
+}

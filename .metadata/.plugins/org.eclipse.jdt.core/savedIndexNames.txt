@@ -1,0 +1,6 @@
+INDEX VERSION 1.131+/media/ruturaj/Data/stock-market-charting-application/.metadata/.plugins/org.eclipse.jdt.core
+4160158907.index
+2234187592.index
+570184760.index
+1011143248.index
+1526391081.index

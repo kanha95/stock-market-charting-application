@@ -1,0 +1,19 @@
+package com.stocks.companyinfoservice.services;
+import java.util.ArrayList;
+import com.example.microservice.model.IPO;
+
+public class IPOServices {
+    private ArrayList<IPO> ipoDatabase;
+
+    public IPO getCompanyIPODetails(int id){
+        IPO toReturn = new IPO();
+        for(IPO ipo:ipoDatabase){
+            if(ipo.getCompanyID() == id){
+                toReturn =  ipo.getIPODetails();
+                break;
+            }
+        }
+        return toReturn;
+    }
+
+}

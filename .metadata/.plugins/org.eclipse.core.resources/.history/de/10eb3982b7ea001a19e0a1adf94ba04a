@@ -1,0 +1,6 @@
+package com.stocks.companyinfoservice.models;
+
+public class Stock {
+    private int id; 
+    
+}

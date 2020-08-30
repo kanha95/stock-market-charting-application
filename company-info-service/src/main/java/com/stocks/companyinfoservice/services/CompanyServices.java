@@ -1,0 +1,45 @@
+package com.stocks.companyinfoservice.services;
+
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.regex.Pattern;
+
+import com.stocks.companyinfoservice.models.*;
+
+import java.util.regex.Matcher;
+
+
+public class CompanyServices {
+    private ArrayList<Company> companyDatabase;
+    
+
+    public double getCompanyStockPrice (int id, Date from, Date to) {
+    	return 0.0;
+    }
+
+    public ArrayList<Company> getMatchingCompanies(String pattern){
+
+        ArrayList<Company> matchingCompanies = new ArrayList<Company>();
+
+        Pattern p = Pattern.compile(pattern);
+
+        for(Company company:companyDatabase){
+            Matcher matcher = p.matcher(company.getCompanyName());
+            if (matcher.matches()){
+                matchingCompanies.add(company);
+            }
+        }
+        return matchingCompanies;
+
+    }
+
+    public String getCompanyDetails(String name){
+
+        for(Company company:companyDatabase){
+            if(company.getCompanyName().equals(name))
+                return company.getCompanyBrief();
+        }
+        return "No such company exists!";
+
+    } 
+}

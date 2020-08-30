@@ -1,0 +1,44 @@
+package com.example.microservice.services;
+
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.regex.Pattern;
+
+import com.example.microservice.model.*;
+
+import java.util.regex.Matcher;
+
+public class CompanyServices {
+    private ArrayList<Company> companyDatabase;
+    
+
+    public double getCompanyStockPrice (int id,Date from, Date to) {
+
+    }
+
+    public ArrayList<Company> getMatchingCompanies(String pattern){
+
+        ArrayList<Company> matchingCompanies = new ArrayList<Company>();
+
+        Pattern p = Pattern.compile(pattern);
+
+        for(Company company:companyDatabase){
+            Matcher matcher = p.matcher(company.getCompanyName());
+            if (matcher.matches()){
+                matchingCompanies.add(company);
+            }
+        }
+        return matchingCompanies;
+
+    }
+
+    public String getCompanyDetails(String name){
+
+        for(Company company:companyDatabase){
+            if(company.getCompanyName().equals(name))
+                return company.getWriteup();
+        }
+        return "No such company exists!";
+
+    } 
+}

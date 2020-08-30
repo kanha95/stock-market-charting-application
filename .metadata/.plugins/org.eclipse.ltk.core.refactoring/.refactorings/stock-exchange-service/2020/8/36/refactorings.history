@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;com.stocks.stockExchangeService&apos; to &apos;com.stocks.stockexchangeservice&apos;&#x0A;- Original project: &apos;stock-exchange-service&apos;&#x0A;- Original element: &apos;stock-exchange-service/src/main/java/com.stocks.stockExchangeService&apos;&#x0A;- Renamed element: &apos;stock-exchange-service/src/main/java/com.stocks.stockexchangeservice&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;com.stocks.stockExchangeService&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.stocks.stockExchangeService" name="com.stocks.stockexchangeservice" qualified="false" references="true" stamp="1598796098342" textual="false" version="1.0"/>
+</session>

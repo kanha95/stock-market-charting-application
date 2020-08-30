@@ -1,0 +1,10 @@
+package com.stocks.companyinfoservice;
+
+public class companyInfoService {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

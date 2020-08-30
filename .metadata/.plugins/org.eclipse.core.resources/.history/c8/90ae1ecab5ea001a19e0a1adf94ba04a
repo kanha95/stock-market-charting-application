@@ -1,0 +1,77 @@
+package com.example.microservice.model;
+import java.sql.Date;
+
+public class IPO {
+    private int id;
+    private Date closeDateTime;
+    private Date openDateTIme;
+    private double sharePrice;
+    private double totalShares; 
+    private double companyID;
+
+	public int getId() {
+		return this.id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Date getCloseDateTime() {
+		return this.closeDateTime;
+	}
+
+	public void setCloseDateTime(Date closeDateTime) {
+		this.closeDateTime = closeDateTime;
+	}
+
+	public Date getOpenDateTIme() {
+		return this.openDateTIme;
+	}
+
+	public void setOpenDateTIme(Date openDateTIme) {
+		this.openDateTIme = openDateTIme;
+	}
+
+	public double getSharePrice() {
+		return this.sharePrice;
+	}
+
+	public void setSharePrice(double sharePrice) {
+		this.sharePrice = sharePrice;
+	}
+
+	public double getTotalShares() {
+		return this.totalShares;
+	}
+
+	public void setTotalShares(double totalShares) {
+		this.totalShares = totalShares;
+	}
+
+	public double getCompanyID() {
+		return this.companyID;
+	}
+
+	public void setCompanyID(double companyID) {
+		this.companyID = companyID;
+	}
+
+	public IPO(){
+		
+	}
+	public IPO(int id, Date closeDateTime, Date openDateTIme, double sharePrice, double totalShares, double companyID) {
+		this.id = id;
+		this.closeDateTime = closeDateTime;
+		this.openDateTIme = openDateTIme;
+		this.sharePrice = sharePrice;
+		this.totalShares = totalShares;
+		this.companyID = companyID;
+    }
+
+    public IPO getIPODetails(){
+        return this;
+    }
+    
+
+}
