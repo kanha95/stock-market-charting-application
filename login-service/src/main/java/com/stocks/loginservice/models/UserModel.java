@@ -2,13 +2,21 @@ package com.stocks.loginservice.models;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import com.stocks.loginservice.entity.User;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-public class User implements UserDetails {
-	private int id;
+public class UserModel implements UserDetails {
+	/**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+    private int id;
     private int confirmed;
     private String password;
     private String userType;
@@ -16,9 +24,13 @@ public class User implements UserDetails {
     private int contactId;
 
 
+    private boolean active;
+    private List<GrantedAuthority> authorities;
+
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
+        return authorities;
     }
 
     @Override
@@ -46,8 +58,16 @@ public class User implements UserDetails {
         return this.userName;
     }
 
+    public UserModel(User user){
+        this.userName = user.getUserName();
+        this.password = user.getPassword();
+        this.active = user.getActive();
+        this.authorities = Arrays.stream(user.getRoles().split(","))
+        .map(SimpleGrantedAuthority::new)
+        .collect(Collectors.toList());
+    }
 
-    public User(String username, String password){
+    public UserModel(String username, String password){
         this.userName = username;
         this.password = password;
     }
