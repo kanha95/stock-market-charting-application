@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+    <fullyQualifiedTypeName name="com.sun.org.apache.xalan.internal.xsltc.compiler.Pattern"/>
+    <fullyQualifiedTypeName name="ch.qos.logback.core.boolex.Matcher"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="com.stocks.companyinfoservice.services.CompanyServices"/>
+    <fullyQualifiedTypeName name="com.stocks.companyinfoservice.services.IpoServices"/>
+    <fullyQualifiedTypeName name="com.stocks.companyinfoservice.models.Ipo"/>
+    <fullyQualifiedTypeName name="java.sql.Timestamp"/>
+    <fullyQualifiedTypeName name="com.stocks.sectorinfoservice.SectorService"/>
+    <fullyQualifiedTypeName name="com.stocks.sectorinfoservice.models.Sector"/>
+    <fullyQualifiedTypeName name="com.sun.tools.javac.util.List"/>
+    <fullyQualifiedTypeName name="com.stocks.stockexchangeservice.models.StockExchange"/>
+    <fullyQualifiedTypeName name="com.stocks.stockexchangeservice.services.StockExchangeServices"/>
+</qualifiedTypeNameHistroy>
