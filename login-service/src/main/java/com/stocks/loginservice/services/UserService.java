@@ -33,13 +33,12 @@ public class UserService implements UserDetailsService {
         String[] user_info = new String[2];
 
         if (u.isPresent() && u.get().getPassword().equals(user.getPassword())) {
-            user_info[0] = u.get().getUserType();
+            user_info[0] = u.get().getUserName();
             user_info[1] = confirmationTokenRepository.findTokenByUser(u.get()).get().getToken();
             return user_info;
         } else {
-            user_info[0] = "";
-            user_info[1] = "";
-            return user_info;
+            
+            return "No such user found!";
         }
     }
 
