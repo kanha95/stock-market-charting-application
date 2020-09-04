@@ -3,10 +3,11 @@ package com.stocks.stockexchangeservice.models;
 public class Company {
 	
 	private int id;
+	private String name;
 	private String ceo;
     private String brief;
     private String code;
-    private String name;
+   
     private int contactId;
     private int sectorId;
     private int stockExchangeId;
