@@ -2,7 +2,12 @@ package com.stocks.companyinfoservice.models;
 
 import java.sql.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Ipo {
+	@Id
     private int id;
     private Date closeDateTime;
     private Date openDateTime;
