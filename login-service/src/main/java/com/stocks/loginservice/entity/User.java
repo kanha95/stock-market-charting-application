@@ -5,12 +5,13 @@ import javax.persistence.*;
 @Table (name="UserDB")
 public class User {
     @Id
-    @SequenceGenerator(name="seq",sequenceName="oracle_seq")
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private int confirmed;
     private String password;
     private String userType;
+
+    @Column(unique=true)
     private String userName;
     private int contactId;
 
