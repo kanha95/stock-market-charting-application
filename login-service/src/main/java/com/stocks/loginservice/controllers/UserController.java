@@ -35,11 +35,6 @@ public class UserController {
         return userService.loginUser(user);
     }
 
-    @PostMapping("/user/check")
-    public boolean checkToken(@RequestBody String token) {
-        return userService.checkToken(token);
-    }
-
     @PostMapping("/user/logout")
     public void logoutUser(@RequestBody User user) {
         userService.logoutUser(user);

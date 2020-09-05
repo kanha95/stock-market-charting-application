@@ -37,8 +37,9 @@ public class UserService implements UserDetailsService {
             user_info[1] = confirmationTokenRepository.findTokenByUser(u.get()).get().getToken();
             return user_info;
         } else {
-            
-            return "No such user found!";
+            user_info[0] = "No such user found";
+            user_info[1] = "No such user found";
+            return user_info;
         }
     }
 
