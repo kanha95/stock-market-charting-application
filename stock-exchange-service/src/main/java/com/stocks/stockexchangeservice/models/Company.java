@@ -1,93 +1,75 @@
 package com.stocks.stockexchangeservice.models;
 
 public class Company {
-	
 	private int id;
+	private String name;
 	private String ceo;
     private String brief;
     private String code;
-    private String name;
     private int contactId;
-    private int sectorId;
-    private int stockExchangeId;
-    
-    
-    public Company(int id, String ceo, String brief, String code, String name, int contactId, int sectorId, int stockExchangeId) {
-        this.id = id;
-        this.ceo = ceo;
-        this.brief = brief;
-        this.code = code;
-        this.name = name;
-        this.contactId = contactId;
-        this.sectorId = sectorId;
-        this.stockExchangeId = stockExchangeId;
-    }
-    
-    public int getCompanyId() {
-        return id;
-    }
-    
-    public String getCompanyCeo() {
-    	return ceo;
-    }
-    
-    public String getCompanyBrief() {
-    	return brief;
-    }
-    
-    public String getCompanyCode() {
-    	return code;
-    }
-    
-    public String getCompanyName() {
-        return name;  
-    }
-    
-    public int getContactId() {
-    	return contactId;
-    }
-
-    public int getSectorid() {
-    	return sectorId;
-    }
-    
-    public int getStockExchangeId() {
-    	return stockExchangeId;
-    }
-    
-    public void setCompanyId(int id) {
-        this.id = id;
-    }
-    
-    public void setCompanyCeo(String ceo) {
-    	this.ceo = ceo;
-    }
-    
-    public void setCompanyBrief(String brief) {
-    	this.brief = brief;
-    }
-    
-    public void setCompanyCode(String code) {
-    	this.code = code;
-    }
-    
-    public void setCompanyName(String name) {
-        this.name = name;  
-    }
-    
-    public void setContactId(int contactId) {
-    	this.contactId = contactId;
-    }
-
-    public void setSectorid(int sectorId) {
-    	this.sectorId = sectorId;
-    }
-    
-    public void setStockExchangeId(int stockExchangeId) {
-    	this.stockExchangeId = stockExchangeId;
-    }
-
-    
-
-    
+    private String sectorId;
+    private String stockExchangeId;
+	public Company() {
+		super();
+	}
+	public Company(int id, String name, String ceo, String brief, String code, int contactId, String sectorId,
+			String stockExchangeId) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.ceo = ceo;
+		this.brief = brief;
+		this.code = code;
+		this.contactId = contactId;
+		this.sectorId = sectorId;
+		this.stockExchangeId = stockExchangeId;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getCeo() {
+		return ceo;
+	}
+	public void setCeo(String ceo) {
+		this.ceo = ceo;
+	}
+	public String getBrief() {
+		return brief;
+	}
+	public void setBrief(String brief) {
+		this.brief = brief;
+	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
+	public int getContactId() {
+		return contactId;
+	}
+	public void setContactId(int contactId) {
+		this.contactId = contactId;
+	}
+	public String getSectorId() {
+		return sectorId;
+	}
+	public void setSectorId(String sectorId) {
+		this.sectorId = sectorId;
+	}
+	public String getStockExchangeId() {
+		return stockExchangeId;
+	}
+	public void setStockExchangeId(String stockExchangeId) {
+		this.stockExchangeId = stockExchangeId;
+	}
 }

@@ -1,38 +1,43 @@
 package com.stocks.sectorinfoservice.models;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+
+@Entity
 public class Sector {
-	private int id;
-	private String brief;
-	private String name;
-	
+	@Id
+	private String id;
+	private String sector;
+	private String description;
 	public Sector() {
 	}
-	public Sector(int id, String brief, String name) {
+	public Sector(String id,String sector, String description) {
 		super();
 		this.id=id;
-		this.brief = brief;
-		this.name = name;
+		this.sector = sector;
+		this.description = description;
 	}
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	public String getSector() {
+		return sector;
 	}
-	public void setSector(String name) {
-		this.name = name;
+	public void setSector(String sector) {
+		this.sector = sector;
 	}
-	public String getBrief() {
-		return brief;
+	public String getDescription() {
+		return description;
 	}
-	public void setDesc(String brief) {
-		this.brief = brief;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	@Override
 	public String toString() {
-		return "Sector [id=" + id + ", sector=" + name + ", brief=" + brief + "]";
+		return "Sector [id=" + id + ", sector=" + sector + ", description=" + description + "]";
 	}
 }
