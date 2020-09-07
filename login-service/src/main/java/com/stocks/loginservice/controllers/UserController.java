@@ -20,15 +20,19 @@ public class UserController {
         return ("<h1>Welcome</h1>");
     }
 
-    @GetMapping("/user")
-    public String user() {
-        return ("<h1>Welcome User</h1>");
+    @PostMapping("/admin/login")
+    public String admin(@RequestBody User user) {
+        return userService.adminLogin(user);
     }
 
-    @GetMapping("/admin")
-    public String admin() {
-        return ("<h1>Welcome Admin</h1>");
-    }
+    @PostMapping("/admin/sign-up")
+    public String adminSignUp(@RequestBody User user) {
+
+        if(!user.getRoles().equals("ADMIN"))
+            return "You can't signup as an admin!";
+		userService.addAdmin(user);
+		return "redirect:/admin/login";
+	}
 
     @PostMapping("/user/login")
     public String[] loginUser(@RequestBody User user) {
@@ -38,6 +42,8 @@ public class UserController {
     @PostMapping("/user/logout")
     public void logoutUser(@RequestBody User user) {
         userService.logoutUser(user);
+        //return "User: " + user.getUserName() + " Successfully logged out!" ;
+
     }
 
     @GetMapping("/user/sign-up")
@@ -50,8 +56,7 @@ public class UserController {
 	String signUp(@RequestBody User user) {
 
 		userService.addUser(user);
-
-		return "redirect:/user";
+		return "redirect:/user/login";
 	}
 
 }
