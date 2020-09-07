@@ -30,16 +30,16 @@ public class UserService implements UserDetailsService {
     public String[] loginUser(User user) {
         Optional<User> u = userRepository.findByUserName(user.getUserName());
 
-        String[] user_info = new String[2];
+        String[] userInfo = new String[2];
 
         if (u.isPresent() && u.get().getPassword().equals(user.getPassword())) {
-            user_info[0] = u.get().getUserName();
-            user_info[1] = confirmationTokenRepository.findTokenByUser(u.get()).get().getToken();
-            return user_info;
+            userInfo[0] = u.get().getUserName();
+            userInfo[1] = confirmationTokenRepository.findTokenByUser(u.get()).get().getToken();
+            return userInfo;
         } else {
-            user_info[0] = "No such user found";
-            user_info[1] = "No such user found";
-            return user_info;
+            userInfo[0] = "No such user found";
+            userInfo[1] = "No token since no such user exists!";
+            return userInfo;
         }
     }
 
