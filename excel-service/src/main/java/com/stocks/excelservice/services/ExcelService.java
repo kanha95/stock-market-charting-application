@@ -2,7 +2,11 @@ import java.io.InputStream;
 import java.util.Date;
 import java.util.Iterator;
 
+import com.stocks.excelservice.models.Company;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -10,6 +14,9 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 @Service
 public class ExcelService{
+
+    @Autowired
+    private RestTemplate restTemplate;
     
 
     public void importExcelFile(InputStream inputStream){
@@ -48,6 +55,7 @@ public class ExcelService{
 
     //need to connect with company database
     public Company findCompany(){
+        
 
     }
 
