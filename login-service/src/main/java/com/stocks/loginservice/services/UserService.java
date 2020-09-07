@@ -30,21 +30,16 @@ public class UserService implements UserDetailsService {
     public String[] loginUser(User user) {
         Optional<User> u = userRepository.findByUserName(user.getUserName());
 
-        String[] userInfo = new String[3];
+        String[] userInfo = new String[4];
 
         if (u.isPresent() && u.get().getPassword().equals(user.getPassword())) {
             userInfo[0] = u.get().getUserName();
             userInfo[1] = confirmationTokenRepository.findTokenByUser(u.get()).get().getToken();
             userInfo[2] = u.get().getUserType();
-            userInfo[4] = u.get().getRoles();
+            userInfo[3] = u.get().getRoles();
             return userInfo;
         }
         return userInfo;
-    }
-
-    public boolean checkToken(String token) {
-        Optional<ConfirmationToken> t = confirmationTokenRepository.findTokenByToken(token);
-        return t.isPresent();
     }
 
     public void logoutUser(User user) {
@@ -62,6 +57,23 @@ public class UserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return null;
     }
+
+	public String adminLogin(User user) {
+
+        Optional<User> u = userRepository.findByUserName(user.getUserName());
+        if(u.isPresent() && u.get().getRoles().equals("ADMIN")){
+            return "Welcome admin" + " " + u.get().getUserName();
+        }
+        return "You don't have access to this page!";
+	}
+
+	public void addAdmin(User user) {
+        if(user.getRoles().equals("ADMIN")){
+            userRepository.save(user);
+            ConfirmationToken t = new ConfirmationToken(user);
+            confirmationTokenRepository.save(t);
+        }
+	}
 
 
 }
