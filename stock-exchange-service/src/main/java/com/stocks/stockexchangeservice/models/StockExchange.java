@@ -1,20 +1,24 @@
 package com.stocks.stockexchangeservice.models;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+@Entity
 public class StockExchange {
+	@Id
 	private int id;
-	private String brief;
+	private String name;
 	private String remarks;
 	private int contactId;
 	
-	
+
 	public StockExchange() {
-	
+		super();
 	}
 	
-	public StockExchange(int id, String brief, String remarks, int contactId) {
+	public StockExchange(int id, String name, String remarks, int contactId) {
 		super();
 		this.id = id;
-		this.brief = brief;
+		this.name = name;
 		this.remarks = remarks;
 		this.contactId = contactId;
 	}
@@ -40,17 +44,17 @@ public class StockExchange {
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
 	}
-	public String getBrief() {
-		return brief;
+	public String getName() {
+		return name;
 	}
-	public void setBrief(String brief) {
-		this.brief = brief;
+	public void setName(String brief) {
+		this.name = brief;
 	}
 	
 	
 	@Override
 	public String toString() {
-		return "Sector [id=" + id + "brief=" + brief + "]";
+		return "Sector [id=" + id + "brief=" + name + "]";
 	}
 	
 }

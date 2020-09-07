@@ -1,42 +1,39 @@
 package com.stocks.sectorinfoservice;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.stocks.sectorinfoservice.models.Sector;
+import com.stocks.sectorinfoservice.repository.SectorRepository;
 
 
 @Service
 public class SectorService {
+	@Autowired
+	private SectorRepository sectorRepository;
 	
-	private ArrayList<Sector> sectors = new ArrayList<Sector>(Arrays.asList(
-			new Sector(1,"IT", "Provides IT services"),
-			new Sector(2,"Automobiles","Builds automobiles"),
-			new Sector(3,"Healthcare","Provides healthcare")
-			)); 
+
+	
 	public List<Sector> getAllSectors()
 	{
+		List<Sector> sectors = new ArrayList<Sector>();
+		for(Sector s:sectorRepository.findAll())
+			sectors.add(s);
+		
 		return sectors;
 	}
-	public Sector getSector(int id)
+	public Optional<Sector> getSector(String id)
 	{
-		for(Sector s:sectors)
-		{
-			if(s.getId() == id) return s;
-		}
-		return null;
+		return sectorRepository.findById(id);
 	}
 	public void addSector(Sector sector) {
-		sectors.add(sector);
+		sectorRepository.save(sector);
 	}
 	public void updateSector(Sector sector, int id) {
-		for(int i=0;i<sectors.size();i++)
-		{
-			if(sectors.get(i).getId() == id)
-				sectors.set(i, sector);
-		}
+		sectorRepository.save(sector);
 	}
 }

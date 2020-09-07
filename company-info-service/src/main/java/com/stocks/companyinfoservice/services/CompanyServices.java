@@ -1,45 +1,50 @@
 package com.stocks.companyinfoservice.services;
+import java.util.List;
+import java.util.Optional;
 
-import java.sql.Date;
-import java.util.ArrayList;
-import java.util.regex.Pattern;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.stocks.companyinfoservice.models.*;
+import com.stocks.companyinfoservice.repository.CompanyRepository;
 
-import java.util.regex.Matcher;
-
-
+@Service
 public class CompanyServices {
-    private ArrayList<Company> companyDatabase;
-    
+	
+	@Autowired
+	private CompanyRepository repo;
 
-    public double getCompanyStockPrice (int id, Date from, Date to) {
-    	return 0.0;
-    }
+	public List<Company> getAllCompany()
+	{
+		return (List<Company>)repo.findAll();
+	}
+	public Optional<Company> getCompany(int id)
 
-    public ArrayList<Company> getMatchingCompanies(String pattern){
+	{
+		return repo.findById(id);
+	}
+	
+	
+	public  void saveCompany(Company c)
 
-        ArrayList<Company> matchingCompanies = new ArrayList<Company>();
+	{
+		Company company = repo.save(c);
+	}
+	
+	
+	public void updateCompany(Company c)
 
-        Pattern p = Pattern.compile(pattern);
+	{
+		repo.save(c);
+	}
+	
 
-        for(Company company:companyDatabase){
-            Matcher matcher = p.matcher(company.getCompanyName());
-            if (matcher.matches()){
-                matchingCompanies.add(company);
-            }
-        }
-        return matchingCompanies;
+	public void deleteCompany(int id)
 
-    }
+	{
+			repo.deleteById(id);
+	}
 
-    public String getCompanyDetails(String name){
 
-        for(Company company:companyDatabase){
-            if(company.getCompanyName().equals(name))
-                return company.getCompanyBrief();
-        }
-        return "No such company exists!";
-
-    } 
 }
