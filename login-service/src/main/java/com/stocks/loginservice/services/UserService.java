@@ -30,17 +30,16 @@ public class UserService implements UserDetailsService {
     public String[] loginUser(User user) {
         Optional<User> u = userRepository.findByUserName(user.getUserName());
 
-        String[] userInfo = new String[2];
+        String[] userInfo = new String[3];
 
         if (u.isPresent() && u.get().getPassword().equals(user.getPassword())) {
             userInfo[0] = u.get().getUserName();
             userInfo[1] = confirmationTokenRepository.findTokenByUser(u.get()).get().getToken();
-            return userInfo;
-        } else {
-            userInfo[0] = "No such user found";
-            userInfo[1] = "No token since no such user exists!";
+            userInfo[2] = u.get().getUserType();
+            userInfo[4] = u.get().getRoles();
             return userInfo;
         }
+        return userInfo;
     }
 
     public boolean checkToken(String token) {
@@ -61,7 +60,6 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        // TODO Auto-generated method stub
         return null;
     }
 
