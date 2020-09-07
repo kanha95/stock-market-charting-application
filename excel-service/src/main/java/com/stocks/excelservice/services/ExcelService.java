@@ -1,7 +1,11 @@
 import java.io.InputStream;
+import java.util.Date;
 import java.util.Iterator;
 
 import org.springframework.stereotype.Service;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 @Service
@@ -9,14 +13,14 @@ public class ExcelService{
     
 
     public void importExcelFile(InputStream inputStream){
-        WorkBook book = new XSSFWorkbook(inputStream);
-        Sheet intial_sheet = book.getSheetAt(0);
+        XSSFWorkbook book = new XSSFWorkbook(inputStream);
+        Sheet initialSheet = book.getSheetAt(0);
 
-        Iterator<Row> iterator = initial_sheet.iterator();
+        Iterator<Row> iterator = initialSheet.iterator();
         iterator.next();
 
         while(iterator.hasNext()){
-            Iterator<Cell> items = rowIterator.next().cellIterator();
+            Iterator<Cell> items = iterator.next().cellIterator();
             String companyName = items.next().getStringCellValue();
             String stockExchangeName = items.next().getStringCellValue();
             Date day = items.next().getDateCellValue();
@@ -24,7 +28,7 @@ public class ExcelService{
             Double closePrice = items.next().getNumericCellValue();
             
 
-            StockExchange stockExchange = findorStockExchange(stockExchangeName);
+            StockExchange stockExchange = findStockExchange(stockExchangeName);
             if (stockExchange == null){
                 stockExchange = createStockExchange(stockExchangeName);
             }
@@ -48,7 +52,7 @@ public class ExcelService{
     }
 
     //need to connect with stockexchange database
-    public StockExchange findorStockExchange() {
+    public StockExchange findStockExchange() {
 
     }
 
