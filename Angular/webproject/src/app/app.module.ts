@@ -8,8 +8,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { FeaturesComponent } from './features/features.component';
 import { UserloginComponent } from './userlogin/userlogin.component';
 import { UserregisterComponent } from './userregister/userregister.component';
-import {FormsModule} from '@angular/forms'
-import {HttpClientModule} from '@angular/common/http'
+import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
