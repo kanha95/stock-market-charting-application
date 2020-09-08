@@ -5,15 +5,15 @@ import { AuthenticationService } from '../authentication.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-userlogin',
-  templateUrl: './userlogin.component.html',
-  styleUrls: ['./userlogin.component.scss']
+  selector: 'app-adminlogin',
+  templateUrl: './adminlogin.component.html',
+  styleUrls: ['./adminlogin.component.scss']
 })
-export class UserloginComponent implements OnInit {
+export class AdminloginComponent implements OnInit {
   user : User = new User("", "");
   message : any;
   invalidLogin = false
-
+  
   constructor(private router: Router,
     private loginservice: AuthenticationService) { }
 
@@ -21,7 +21,7 @@ export class UserloginComponent implements OnInit {
   }
 
   checkLogin() {
-    if (this.loginservice.authenticate(this.user.userName, this.user.password)
+    if (this.loginservice.authenticateadmin(this.user.userName, this.user.password)
     ) {
       this.router.navigate([''])
       this.invalidLogin = false
@@ -30,4 +30,5 @@ export class UserloginComponent implements OnInit {
       this.message = "Invalid Login, Please Try Again !!!"
     }
   }
+
 }

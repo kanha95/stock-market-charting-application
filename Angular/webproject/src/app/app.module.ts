@@ -10,6 +10,15 @@ import { UserloginComponent } from './userlogin/userlogin.component';
 import { UserregisterComponent } from './userregister/userregister.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { LogoutComponent } from './logout/logout.component';
+import { IpoComponent } from './ipo/ipo.component';
+import { ComparecompanyComponent } from './comparecompany/comparecompany.component';
+import { ComparesectorComponent } from './comparesector/comparesector.component';
+import { ImportdataComponent } from './importdata/importdata.component';
+import { ManagecompanyComponent } from './managecompany/managecompany.component';
+import { ManageexchangeComponent } from './manageexchange/manageexchange.component';
+import { AddipoComponent } from './addipo/addipo.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +27,16 @@ import {HttpClientModule} from '@angular/common/http';
     WelcomeComponent,
     FeaturesComponent,
     UserloginComponent,
-    UserregisterComponent
+    UserregisterComponent,
+    LogoutComponent,
+    IpoComponent,
+    ComparecompanyComponent,
+    ComparesectorComponent,
+    ImportdataComponent,
+    ManagecompanyComponent,
+    ManageexchangeComponent,
+    AddipoComponent,
+    AdminloginComponent
   ],
   imports: [
     BrowserModule,
