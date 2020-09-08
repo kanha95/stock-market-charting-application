@@ -5,6 +5,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { FeaturesComponent } from './features/features.component';
 import { UserloginComponent } from './userlogin/userlogin.component';
 import { UserregisterComponent } from './userregister/userregister.component';
+import { LogoutComponent } from './logout/logout.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
 
 const routes: Routes = [
 {
@@ -23,9 +25,16 @@ const routes: Routes = [
 {
   path : "userregister", component : UserregisterComponent
 },
+{ 
+  path: 'logout', component: LogoutComponent
+},
+{ 
+  path: 'adminlogin', component: AdminloginComponent
+},
 {
   path : "**", component : WelcomeComponent
 }
+
 ]
 ;
 

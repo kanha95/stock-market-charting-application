@@ -5,11 +5,25 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link active" routerLink="welcome">Home <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link active" routerLink = "features">Features</a>
-        <a class="nav-item nav-link active" routerLink = "userlogin">User-Login</a>
-        <a class="nav-item nav-link active" href="userregister">User-Register</a>
-        <a class="nav-item nav-link active" href="adminlogin">Admin-Login</a>
+
+        <a *ngIf="!isUserLoggedIn() && !isAdminLoggedIn() " class="nav-item nav-link active"  routerLink="welcome">Home <span class="sr-only">(current)</span></a>
+        <a *ngIf="!isUserLoggedIn()  && !isAdminLoggedIn()" class="nav-item nav-link active" routerLink = "features">Features</a>
+        <a *ngIf="!isUserLoggedIn()  && !isAdminLoggedIn()" class="nav-item nav-link active" routerLink = "userlogin">User-Login</a>
+        <a *ngIf="!isUserLoggedIn()  && !isAdminLoggedIn()" class="nav-item nav-link active" routerLink="userregister">User-Register</a>
+        <a *ngIf="!isUserLoggedIn() && !isAdminLoggedIn()" class="nav-item nav-link active" routerLink="adminlogin">Admin-Login</a>
+
+        
+        <a *ngIf="isUserLoggedIn()" class="nav-item nav-link active" routerLink="ipo">IPO</a>
+        <a *ngIf="isUserLoggedIn()" class="nav-item nav-link active" routerLink="comparecompany">Compare-Company</a>
+        <a *ngIf="isUserLoggedIn()" class="nav-item nav-link active" routerLink="comparesector">Compare-Sector</a>
+        
+        <a *ngIf="isAdminLoggedIn()" class="nav-item nav-link active" routerLink="importdata">Import-Data</a>
+        <a *ngIf="isAdminLoggedIn()" class="nav-item nav-link active" routerLink="managecompany">Manage-Company</a>
+        <a *ngIf="isAdminLoggedIn()" class="nav-item nav-link active" routerLink="manageexchange">Manage-Exchange</a>
+        <a *ngIf="isAdminLoggedIn()" class="nav-item nav-link active" routerLink="addipo">Add-IPO</a>
+
+        <a *ngIf="isUserLoggedIn() || isAdminLoggedIn() " class="nav-item nav-link active" routerLink="logout">Logout</a>
+        
       </div>
     </div>
   </nav>
