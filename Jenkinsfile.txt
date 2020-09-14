@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    tools {
+        maven 'M3'
+        jdk 'JDK'
+        angular 'ANG'
+    }
+    stages {
+         stage('BuildBackend') {
+            steps {
+              
+            }
+        }
+        stage('BuildFrontend') {
+            steps {
+                dir('Angular') {
+
+                }
+            }
+        }
+    }
+}
