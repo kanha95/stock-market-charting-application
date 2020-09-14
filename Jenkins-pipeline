@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+    tools {
+        maven 'M3'
+        jdk 'JDK'
+        nodejs 'NODE'
+    }
+    stages {
+         stage('BuildBackend') {
+            steps {
+              git 'https://github.com/kanha95/stock-market-charting-application'
+              bat 'mvn -B -DskipTests clean package -P company-info-service,excel-service,login-service,sector-info-service,stock-exchange-service'
+            }
+        }
+        stage('BuildFrontend') {
+            steps {
+                dir('Angular') {
+                    bat "npm install -g @angular/cli@6.0.8"
+                    bat "npm install"
+                    bat "ng build"
+                }
+            }
+        }
+    }
+}
